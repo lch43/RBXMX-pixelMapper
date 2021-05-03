@@ -1,4 +1,4 @@
-# RBXMX miniMapper
+# RBXMX pixelMapper
 
 A project by Landon90
 
@@ -12,35 +12,37 @@ V.0.9.0
 
 - If you are running the Python script yourself make sure you have [NumPy](https://numpy.org/install/) and [Pillow](https://pillow.readthedocs.io/en/stable/installation.html)
 
-- If you don't want to use the Python script and are on Windows you can use the [miniMapper.exe](Python/miniMapper.exe) however some antivirus software my flag it. To run it anyways you will have to approve of the program in your antivirus. If you do not trust this .exe you can make it yourself, but it does require Python.
+- If you don't want to use the Python script and are on Windows you can use the [pixelMapper.exe](Python/pixelMapper.exe) however some antivirus software my flag it. To run it anyways you will have to approve of the program in your antivirus. If you do not trust this .exe you can make it yourself, but it does require Python.
+
+- You understand that within this document if there is any mention of miniMapper or RBXMX miniMapper, that is this project's previous name. The name has been changed to RBXMX pixelMapper to better suit the work it does.
 
 
 ## Tutorial
 
 ### Step 1:
 
-- Insert the [RBXMX miniMapper](https://www.roblox.com/library/6750600965/RBXMX-miniMapper) ModuleScript into your workspace.
+- Insert the [RBXMX pixelMapper](https://www.roblox.com/library/6750600965/RBXMX-pixelMapper) ModuleScript into your workspace.
 
-If you would like to create this script yourself, check out the source code from [here](Roblox/miniMapper.lua)
+If you would like to create this script yourself, check out the source code from [here](Roblox/pixelMapper.lua)
 
 - Type this into the command line. Feel free to leave the comment out, but do not yet press enter.
 
-`local mapper = require(workspace.miniMapper:Clone()) --[[We clone this in the case you want to directly change the ModuleScript]]`
+`local mapper = require(workspace.pixelMapper:Clone()) --[[We clone this in the case you want to directly change the ModuleScript]]`
 
 ## Step 2:
 
-- Size the Area part within the miniMapper ModuleScript to encompass the whole region you would like to have mapped.
+- Size the Area part within the pixelMapper ModuleScript to encompass the whole region you would like to have mapped.
     - Do not rotate the Area part. It must have an orientation of (0,0,0)
 
-![The Area part inside the miniMapper ModuleScript encompassing the whole map, while being oriented at (0,0,0)](images/AreaTut.JPG)
+![The Area part inside the pixelMapper ModuleScript encompassing the whole map, while being oriented at (0,0,0)](images/AreaTut.JPG)
 
 ### Step 3:
 
 - To set the resolution use the setResolution(x,y) function or change the script directly. If using the function your command line should look similar to the code below.
 
-- If you are manipulating the code directly, change the miniMapper.resolutionX and miniMapper.resolutionY variables.
+- If you are manipulating the code directly, change the pixelMapper.resolutionX and pixelMapper.resolutionY variables.
 
-`local mapper = require(workspace.miniMapper:Clone())`
+`local mapper = require(workspace.pixelMapper:Clone())`
 
 `mapper.setResolution(x,y) --[[Replace x,y with the resolution you would like the base data image to be. The higher the numbers the more work and higher chance of crashing.]]`
 
@@ -59,7 +61,7 @@ If you would like to create this script yourself, check out the source code from
     - calls exportMap() exportMap(true, heightRange) and exportHeightMap() giving you all possible export folders.
     - be careful when using this on a high resolution.
 
-`local mapper = require(workspace.miniMapper:Clone())`
+`local mapper = require(workspace.pixelMapper:Clone())`
 
 `mapper.setResolution(x,y) --[[Replace x,y with the resolution you would like the base data image to be. The higher the numbers the more work and higher chance of crashing.]]`
 
@@ -75,7 +77,7 @@ If you would like to create this script yourself, check out the source code from
 
 - Save the file as a .rbxmx with no spaces in the file name.
 
-![Command line entering 'local mapper = require(workspace.miniMapper:Clone()) mapper.setResolution(100, 100) mapper.exportMap()' and the output message stating 'Map export complete, please check the workspace for the folder to be saved as a .rbxmx file with no spaces in the filename.'](images/StudioCmdTut.JPG)
+![Command line entering 'local mapper = require(workspace.pixelMapper:Clone()) mapper.setResolution(100, 100) mapper.exportMap()' and the output message stating 'Map export complete, please check the workspace for the folder to be saved as a .rbxmx file with no spaces in the filename.'](images/StudioCmdTut.JPG)
 
 ![Folder in workspace named 'MapData - Export this folder as a .rbxmx file with no spaces in name.' right clicked and the option 'Save to File...' being clicked.](images/StudioSaveToFileTut.JPG)
 
@@ -84,11 +86,11 @@ If you would like to create this script yourself, check out the source code from
 ### Step 6:
 
 - Pass the .rbxmx file into the Python script.
-    - If you are using Python put the .rbxmx file in the same directory as miniMapper.py and try 
-        - `python miniMapper.py RBXMX-File-Name.rbxmx`
-    - If you are using [miniMapper.exe](Python/miniMapper.exe) you can just drag the .rbxmx file onto the miniMapper.exe file and it will run.
+    - If you are using Python put the .rbxmx file in the same directory as pixelMapper.py and try 
+        - `python pixelMapper.py RBXMX-File-Name.rbxmx`
+    - If you are using [pixelMapper.exe](Python/pixelMapper.exe) you can just drag the .rbxmx file onto the pixelMapper.exe file and it will run.
         - If you want to make the .exe file yourself run
-            - `pyinstaller --onefile --icon=miniMapper.ico miniMapper.py`
+            - `pyinstaller --onefile --icon=pixelMapper.ico pixelMapper.py`
     
 - Files should end up in the same directory as the .rbxmx file.
     
@@ -98,8 +100,8 @@ If you would like to create this script yourself, check out the source code from
 
 Original
 
-![Original minimap image before upscaling.](images/TutorialOutcome.png)
+![Original pixelMap image before upscaling.](images/TutorialOutcome.png)
 
 Upscaled
 
-![Original minimap image before upscaling.](images/TutorialOutcome-500x500.png)
+![Original pixelMap image before upscaling.](images/TutorialOutcome-500x500.png)
