@@ -21,34 +21,15 @@ try:
         pixelData = []
 
         #If the data is not manipulated before being exported from roblox then
-        #all of the loops are perfectly fine as in most cases they will only
-        #find one object.
+        #assuming strings with the attribute name="Value" should be safe to assume it is a part of the data we need to collect
+        #We are also assuming that roblox adds them to the xml file in the order that they are created which seems to be the case
+        #though if I am wrong I will have to find a work around, which would be based off the name of the StringValues
 
-        #From what I have experienced, the order the objects are in the xml
-        #document are first based on parents, and then based on the order
-        #each object was created. So going through the document in this manner
-        #seems to work perfectly fine. If this gives issues, please reach out
-        #and I will find a more perfect solution.
+        for string in tree.iter("string"):
+            if string.get("name") == 'Value':
+                #Extract the data.
+                data.append(string.text)
 
-        #Start at root - roblox
-        root = tree.getroot()
-        #Search through all <roblox>\<item>
-        for item in root.findall("Item"):
-            #See if you found <roblox>\<Item class="Folder">
-            if item.get('class') == 'Folder':
-                #Search through all <roblox>\<Item class="Folder">\<item>
-                for item2 in item.findall("Item"):
-                    #If we find a string value
-                    if item2.get('class') == 'StringValue':
-                        #Go into the properties of each string value
-                        for prop in item2.findall('Properties'):
-                            #Find all <string>s inside of  each StringValue. One is the name, and other is the value
-                            for string in prop.findall('string'):
-                                #If <string name="Value"> then we can extract the data
-                                if string.get("name") == 'Value':
-                                    #Extract the data.
-                                    data.append(string.text)
-                break
         #Remove the image resolution data and make it into its own list
         resolution = data.pop(0).split(',')
 
